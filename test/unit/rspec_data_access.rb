@@ -117,7 +117,7 @@ describe DataAccess do
          it "should use the database version" do
             expect(@sqlite_database).to receive(:updateStock).with(@book1)
             result = @data_access.updateStock(@book1_update)
-            expect(result).to eql 0
+            expect(result).to eql 1
         end
     end  
 
