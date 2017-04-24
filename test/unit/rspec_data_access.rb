@@ -99,7 +99,7 @@ describe DataAccess do
             @data_access.updateBook(@book1) 
             expect(@dalli_client).to receive(:get).with("v_#{@book1.isbn}" ).
                    and_return(3)  
-             @data_access.isbnSearch(@book1.isbn)                  
+             @data_access.isbnSearch(@book1.isbn)             
            end
        end
        end        
@@ -110,16 +110,14 @@ describe DataAccess do
 
         context "book is new" do
           it "should add it to database but leave remote cache unchanged" do
-              # .... to be completed ....
               expect(@sqlite_database).to receive(:updateStock).with(@book1)
               @data_access.updateStock(@book1)
          end
        end 
-         # ..... to be completed .......
          it "should use the database version" do
             expect(@sqlite_database).to receive(:updateStock).with(@book1)
-            result = @data_access.updateStock(@book1)
-            expect(result).to eql 1
+            result = @data_access.updateStock(@book1_update)
+            expect(result).to eql 0
         end
     end  
 
