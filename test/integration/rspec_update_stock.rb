@@ -31,6 +31,7 @@ describe "Update Stock feature" do
            expect(result.quantity).to eql 16 
          end
       end
+      
 
       context "when it is in the remote cache" do
          it "should update the remote cache unchanged" do
