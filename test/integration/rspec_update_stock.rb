@@ -35,6 +35,8 @@ describe "Update Stock feature" do
       context "when it is in the remote cache" do
          it "should update the remote cache unchanged" do
              # ..... to be completed ......
+             result = @data_access.updateStock(@book1_update)
+             expect(result).to eql 1
          end
       end          
    end
